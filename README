@@ -36,7 +36,7 @@ Requirements
         import optparse
         import httplib
 
-2. Python 2.6 is required.
+2. Python 2.7 is required.
 
 
 -----------------------------------------------

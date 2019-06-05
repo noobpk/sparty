@@ -92,15 +92,15 @@ except ImportError:
 
 def check_python():
         version = sys.version_info
-        if version[:2] != (2,6):
+        if version[:2] != (2,7):
                 print "[-] Sparty is written in Python 2.6.5 (final). Kindly use that version!"
                 print "[devalias.net] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
                 print "[devalias.net] !!! HERE THERE BE DRAGONS !!!"
                 print "[devalias.net] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                # unsupported_ver = raw_input("[devalias.net] Would you like to continue past this version check AT YOUR OWN RISK? (Type: YES): ")
-                # if unsupported_ver != "YES":
-                #     print "[devalias.net] Probably a safer choice. Exiting! (Entered: %s)" %(unsupported_ver)
-                #     sys.exit(0)
+                unsupported_ver = raw_input("[devalias.net] Would you like to continue past this version check AT YOUR OWN RISK? (Type: YES=y): ")
+                if unsupported_ver != "y":
+                    print "[devalias.net] Probably a safer choice. Exiting! (Entered: %s)" %(unsupported_ver)
+                    sys.exit(0)
 
 
 
@@ -119,6 +119,7 @@ def banner():
         Authored by: Aditya K Sood |{0kn0ck}@secniche.org  | 2013
         Twitter:     @AdityaKSood
         Powered by: SecNiche Security Labs !
+        Updated by: Noobpk
         """
         print sparty_banner
         print "\t--------------------------------------------------------------"
@@ -158,7 +159,7 @@ def target_information(name):
         headers = urllib2.urlopen(name)
         print "[+] fetching information from the given target : (%s)" %(headers.geturl())
         print "[+] target responded with HTTP code: (%s)" %headers.getcode()
-        print "[+] target is running server: (%s)" %headers.info() ['server']
+        print "[+] target is running server: (%s)" %headers.info() #('server')
 
     except urllib2.HTTPError as h:
         print "[-] url error occured - (%s)" % h.code
